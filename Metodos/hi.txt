@@ -1,0 +1,44 @@
+class DatosGral:
+    def __init__(self):
+        self._Nomcien=""
+        self._Ubicacion=""
+        self._Pelextincion=True
+        self._Clasificacion=""
+        self._Almacenar=[]
+    def imprimir(self):
+        print("Nombre cientifico: ", self._Nomcien,"\nUbicacion geografiaca: ",self._Ubicacion, "\nPeligro de extincion: ", self._Pelextincion,"\nClasificacion: ", self._Clasificacion)
+        
+class Animalia(DatosGral):
+    def __init__(self):
+        DatosGral.__init__(self)
+        self.NomVulgar=""
+        self.Alimentacion=""
+        self.Poblacion=0
+    def ingresardatos(self):
+        lista=[]
+        self._Clasificacion="A"+str(len(self._Almacenar)).zfill(4)
+        lista.append(self._Clasificacion)
+        lista.append(self._Nomcien=input("Ingresa el nombre cientifico: "))
+        lista.append(self._Ubicacion=input("Ingresa la ubicacion geografica: "))
+        lista.append(self._Pelextincion=bool(input("¿Esta en peligro de extincion?(T/F): ")))
+        lista.append(self.NomVulgar=input("Ingresa el nombre comun: "))
+        lista.append(self.Alimentacion=input("Ingresa el tipo de alimentacion: "))
+        lista.append(self.Poblacion=int(input("Ingresa el numero de poclacion: ")))
+        self._Almacenar.append(lista)
+    def eliminarRegistro(self, clas="A000"):
+        for i in rango(0, len(self._Almacenar),1):
+            if self._Almacenar[i][0]==clas:
+                self._Almacenar.pop(i)
+                print("Datos eliminados: ", self._Almacenar.pop())
+                a=True
+            else:
+                print("Datos no encontrados.")
+                a=False
+        
+        return print("Eliminacion correcta: ", a)
+        
+    def actualizarRegistro(self, clas="A000"):
+        x=input("¿Que registro desea actualizar?: ")
+    
+    def consiltarRegistro(self, clas="A000"):
+        
